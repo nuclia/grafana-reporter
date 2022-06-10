@@ -27,9 +27,9 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/IzakMarais/reporter/grafana"
-	"github.com/IzakMarais/reporter/report"
 	"github.com/gorilla/mux"
+	"github.com/nuclia/grafana-reporter/grafana"
+	"github.com/nuclia/grafana-reporter/report"
 )
 
 // ServeReportHandler interface facilitates testsing the reportServing http handler
@@ -44,7 +44,7 @@ func RegisterHandlers(router *mux.Router, reportServerV4, reportServerV5 ServeRe
 	router.Handle("/api/report/{dashId}", reportServerV4)
 	router.Handle("/api/v5/report/{dashId}", reportServerV5)
 	router.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		fmt.Fprintf(w, "This is grafana-reporter. \nThe API endpoints are documented here: https://github.com/IzakMarais/reporter#endpoint.")
+		fmt.Fprintf(w, "This is grafana-reporter. \nThe API endpoints are documented here: https://github.com/nuclia/grafana-reporter#endpoint.")
 	})
 
 }

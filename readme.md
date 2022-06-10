@@ -21,11 +21,11 @@ Build requirements:
 
 Get the source files and dependencies:
 
-    go get github.com/IzakMarais/reporter/...
+    go get github.com/nuclia/grafana-reporter/...
 
 Build and install `grafana-reporter` binary to `$GOPATH/bin`:
 
-    go install -v github.com/IzakMarais/reporter/cmd/grafana-reporter
+    go install -v github.com/nuclia/grafana-reporter/cmd/grafana-reporter
 
 Running without any flags assumes Grafana is reachable at `localhost:3000`:
 
@@ -111,7 +111,7 @@ error messages, typically it is because you forgot to set this parameter.
 Syntax `template=templateName` implies the grafana-reporter should have access to a template file on the server at `templates/templateName.tex`.
 The `templates` directory can be set with a command line parameter.
 See the LaTeX code in `texTemplate.go` as an example of what variables are available and how to access them.
-Also see [this issue](https://github.com/IzakMarais/reporter/issues/50) for an example. 
+Also see [this issue](https://github.com/nuclia/grafana-reporter/issues/50) for an example. 
 
 
 ### Command line mode
@@ -134,8 +134,8 @@ To run with default flags, use `--net` to enable Docker to connect to Grafana at
 
 If you also have `Make` and `Docker-compose` installed, you can run a simple local orchestration of Grafana and Grafana-reporter:
 
-     go get github.com/IzakMarais/reporter/ ...
-     cd $GOPATH/src/github.com/IzakMarais/reporter
+     go get github.com/nuclia/grafana-reporter/ ...
+     cd $GOPATH/src/github.com/nuclia/grafana-reporter
      make compose-up
 
 Then open a browser to `http://localhost:3000` and create a new test dashboard. Add the example graph and save the dashboard.
@@ -148,11 +148,11 @@ Next, go to: `http://localhost:8080/api/v5/report/qaJCuCezz`, which will output 
 
 The unit tests can be run using the go tool:
 
-    go test -v github.com/IzakMarais/reporter/...
+    go test -v github.com/nuclia/grafana-reporter/...
 
 or, the [GoConvey](http://goconvey.co/) webGUI:
 
-    ./bin/goconvey -workDir `pwd`/src/github.com/IzakMarais -excludedDirs `pwd`/src/github.com/IzakMarais/reporter/tmp/
+    ./bin/goconvey -workDir `pwd`/src/github.com/IzakMarais -excludedDirs `pwd`/src/github.com/nuclia/grafana-reporter/tmp/
 
 ### Release
 
