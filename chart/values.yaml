@@ -1,0 +1,23 @@
+affinity: {}
+nodeSelector: {}
+tolerations: []
+
+replicaCount: 1
+
+image:
+  repository: eu.gcr.io/stashify-218417/grafana-reporter
+  tag: latest
+  pullPolicy: Always
+resources:
+  limits:
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 128Mi
+
+port: 8686
+
+grafanaUrl: prometheus-cloud-grafana.observability.svc.cluster.local
+grafanaToken: grafana_token_here
+
+discordUrl: https://discord.com/api/webhooks/your_discord_webhook_here

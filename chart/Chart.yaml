@@ -1,0 +1,9 @@
+apiVersion: v2
+appVersion: 2.3.1
+description: Grafana pdf exporter is a tool to easily export any Grafana dashboard
+  as PDF. It will be rendered as if the dashboard was opened in a browser.
+maintainers:
+- name: Nuclia Cloud Team
+  email: cloud@nuclia.com
+name: grafana-exporter
+version: 1.0.0

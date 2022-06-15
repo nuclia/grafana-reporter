@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ .Release.Name }}-config"
+  labels:
+    app: "{{ .Chart.Name }}"
+    chart: "{{ .Chart.Name }}"
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+data:
+  generateReport.sh: |
+    #!/bin/sh
+    curl --output /tmp/$CRON_NAME.pdf "http://{{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.port }}/api/v5/report/$DASHBOARD_ID?apitoken={{ .Values.grafanaToken }}&from=now-30d&to=now"
+    curl -F "payload_json={\"username\": \"grafana-reporter\", \"content\": \"$DISCORD_MESSAGE\"}" -F "file1=@/tmp/$CRON_NAME.pdf" {{ .Values.discordUrl }}

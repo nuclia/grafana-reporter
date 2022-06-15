@@ -1,0 +1,2 @@
+{{$data := dict "Values" .Values "Release" .Release "Chart" .Chart "dashboardId" "W_ug4kA7k" "schedule" "30 8 * * *" "cronname" "management-dashboard" "message" "Management dashboard for PRODUCTION"}}
+{{- include "grafana-reporter.cronjob" $data }}
